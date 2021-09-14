@@ -1,0 +1,24 @@
+version: '3'
+services:
+  discovery:
+    image: discovery
+    ports:
+      - 8761:8761
+  service1:
+    image: service1img
+    environment:
+    - JAVA_OPTS=
+       -DEUREKA_SERVER=http://discovery:8761/eureka
+    depends_on:
+    - discovery
+    ports:
+      - 8085:8085
+  service2:
+    image: service2img
+    environment:
+    - JAVA_OPTS=
+       -DEUREKA_SERVER=http://discovery:8761/eureka
+    depends_on:
+      - discovery
+    ports:
+      - 8086:8086

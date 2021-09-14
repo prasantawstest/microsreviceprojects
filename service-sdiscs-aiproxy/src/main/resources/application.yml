@@ -1,0 +1,1 @@
+spring:  application:    name: eureka-serviceserver:  port: 8761eureka:  client:    registerWithEureka: false    fetchRegistry: false  server:    waitTimeInMsWhenSyncEmpty: 0##zuul:#  routes:#    users:#      path: /service1/**#      serviceId: service1
